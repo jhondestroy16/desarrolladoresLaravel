@@ -9,11 +9,11 @@
     @method('post')
     @csrf
     <div>
-        <label for="nombre" class="form-label">Nombre del proyecto</label>
+        <label for="nombre" class="form-label texto my-2"><h4>Nombre del proyecto</h4></label>
         <input type="text" name="nombre" id="nombre" placeholder="Nombre de proyecto" class="form-control" required="required">
     </div>
     <div>
-        <label for="duracion" class="form-label">Duracion del proyecto en meses</label>
+        <label for="duracion" class="form-label texto my-2"><h4>Duracion del proyecto en meses</h4></label>
         <input type="number" name="duracion" id="duracion" placeholder="0" class="form-control" required="required">
     </div>
     <div>
