@@ -14,8 +14,9 @@ class ProyectoController extends Controller
      */
     public function index()
     {
+        $proyectos = Proyecto::orderBy('nombre','asc')->get();
         //Enviar a la vista
-        return view('proyectos.index');
+        return view('proyectos.index',compact('proyectos'));
     }
 
     /**
@@ -55,9 +56,12 @@ class ProyectoController extends Controller
      * @param  \App\Models\Proyecto  $proyecto
      * @return \Illuminate\Http\Response
      */
-    public function show(Proyecto $proyecto)
+    public function show($id)
     {
         //
+        $proyecto = Proyecto::FindOrFail($id);
+        //Enviar a la vista
+        return view('proyectos.view', compact('proyecto'));
     }
 
     /**

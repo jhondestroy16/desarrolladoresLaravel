@@ -28,7 +28,7 @@
                             Proyectos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropProyectos">
-                            <li><a class="dropdown-item" href="#">Listar</a>
+                            <li><a class="dropdown-item" href="{{ route('proyectos') }}">Listar</a>
                             </li>
                             <li><a class="dropdown-item" href="{{ route('insertProyectos') }}">Crear nuevo</a></li>
                         </ul>

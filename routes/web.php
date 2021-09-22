@@ -21,3 +21,4 @@ Route::get('/', function () {
 Route::get('/proyectos', [ProyectoController::class, 'index'])->name('proyectos');
 Route::get('/proyectos/insert', [ProyectoController::class, 'create'])->name('insertProyectos');
 Route::post('/proyectos/store', [ProyectoController::class, 'store'])->name('guardarProyecto');
+Route::get('/proyectos/{id}', [ProyectoController::class, 'show'])->name('verProyecto');
