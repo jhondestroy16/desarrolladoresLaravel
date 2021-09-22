@@ -47,7 +47,7 @@ class ProyectoController extends Controller
 
         Proyecto::create($request->all());
         //Retornar la vista
-        return redirect()->route('proyectos');
+        return redirect()->route('proyectos.index')->with('exito','Se ha guardado el proyecto exitosamente.');
     }
 
     /**
@@ -70,9 +70,12 @@ class ProyectoController extends Controller
      * @param  \App\Models\Proyecto  $proyecto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proyecto $proyecto)
+    public function edit($id)
     {
         //
+        $proyecto = Proyecto::FindOrFail($id);
+        //Enviar a la vista
+        return view('proyectos.edit', compact('proyecto'));
     }
 
     /**
@@ -82,9 +85,19 @@ class ProyectoController extends Controller
      * @param  \App\Models\Proyecto  $proyecto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Proyecto $proyecto)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'nombre'=> 'required',
+            'duracion'=> 'required'
+        ]);
+
+        $proyecto = Proyecto::FindOrFail($id);
+
+        $proyecto->update($request->all());
+        //Retornar la vista
+        return redirect()->route('proyectos.index')->with('exito','Se ha modificado el proyecto exitosamente.');
     }
 
     /**

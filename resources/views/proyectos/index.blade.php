@@ -4,7 +4,14 @@
 @section('content')
     <h1 class = "text-center pt-5 pb-3">Proyectos</h1>
 
-    <a href="{{ route('insertProyectos') }}" class="btn btn-outline-primary mb-3 float-end">Crear proyecto</a>
+    @if($mensaje = Session::get('exito'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <p>{{ $mensaje }}</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
+    <a href="{{ route('proyectos.create') }}" class="btn btn-outline-primary mb-3 float-end">Crear proyecto</a>
 
     <table class="table table-hover">
         <thead>
@@ -18,8 +25,8 @@
                 <tr>
                     <td> {{ $proyecto->nombre }} </td>
                     <td>
-                        <a href="{{ route('verProyecto', $proyecto->id) }}" class="btn btn-info">Detalles</a>
-                        <a href="" class="btn btn-warning">Editación</a>
+                        <a href="{{ route('proyectos.show', $proyecto->id) }}" class="btn btn-info">Detalles</a>
+                        <a href="{{ route('proyectos.edit', $proyecto->id) }}" class="btn btn-warning">Editar</a>
                         <a href="" class="btn btn-danger">Borrar</a>
                     </td>
                 </tr>
