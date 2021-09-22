@@ -30,7 +30,7 @@
                         <ul class="dropdown-menu" aria-labelledby="dropProyectos">
                             <li><a class="dropdown-item" href="#">Listar</a>
                             </li>
-                            <li><a class="dropdown-item" href="#">Crear nuevo</a></li>
+                            <li><a class="dropdown-item" href="{{ route('insertProyectos') }}">Crear nuevo</a></li>
                         </ul>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropDesarrolladore" role="button"
