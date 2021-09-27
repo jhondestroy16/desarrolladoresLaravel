@@ -1,9 +1,18 @@
-.table, form{
+html{
+    height: 100%;
+}
+.table{
     border: black 5px solid;
     border-radius: 15px;
     box-shadow: 0 3px 6px rgb(0,0,0,0.16), 0 3px 6px rgb(0,0,0,0.23);
     padding: 1rem;
     background-color: #529EA9;
+
+}
+.titulo-principal{
+    text-align: center;
+    font-size: 3rem;
+    color: #888888;
 
 }
 .texto{

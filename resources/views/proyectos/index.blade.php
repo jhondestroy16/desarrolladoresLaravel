@@ -27,7 +27,11 @@
                     <td>
                         <a href="{{ route('proyectos.show', $proyecto->id) }}" class="btn btn-info">Detalles</a>
                         <a href="{{ route('proyectos.edit', $proyecto->id) }}" class="btn btn-warning">Editar</a>
-                        <a href="" class="btn btn-danger">Borrar</a>
+                        <form action="{{ route('proyectos.destroy', $proyecto->id) }}" method="post" class="d-inline-flex">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('¿Confirma la eliminacion del proyecto  {{ $proyecto->nombre }}?')">Eliminar</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
