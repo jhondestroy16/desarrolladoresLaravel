@@ -13,7 +13,7 @@
         <div class="titulo-principal">Proyectos de software</div>
         <div class="row">
             <div class="col text-center fs-3"><a href="{{ route('proyectos.index') }}" class="text-decoration-none">Proyectos</a></div>
-            <div class="col text-center fs-3"><a href="#" class="text-decoration-none">Desarrolladores</a></div>
+            <div class="col text-center fs-3"><a href="{{ route('desarrolladores.index') }}" class="text-decoration-none">Desarrolladores</a></div>
         </div>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>

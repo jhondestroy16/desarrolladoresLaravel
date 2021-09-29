@@ -38,8 +38,8 @@
                             Desarrolladores
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropDesarrolladores">
-                            <li><a class="dropdown-item" href="#">Listar</a></li>
-                            <li><a class="dropdown-item" href="#">Crear nuevo</a></li>
+                            <li><a class="dropdown-item" href="{{ route('desarrolladores.index') }}">Listar</a></li>
+                            <li><a class="dropdown-item" href="{{ route('desarrolladores.create') }}">Crear nuevo</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProyectoController;
+use App\Http\Controllers\DesarrolladorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,4 @@ Route::get('/', function () {
 // Route::get('/proyectos/{id}', [ProyectoController::class, 'show'])->name('verProyecto');
 
 Route::resource('proyectos', ProyectoController::class);
+Route::resource('desarrolladores', DesarrolladorController::class);
