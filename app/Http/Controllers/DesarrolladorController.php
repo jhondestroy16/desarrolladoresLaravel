@@ -65,17 +65,25 @@ class DesarrolladorController extends Controller
     public function show($id)
     {
         //
+        $desarrollador = Desarrollador::join('proyectos', 'desarrolladores.proyectoId','=','proyectos.id')
+                                        ->select('desarrolladores.*','proyectos.nombre as nombreProyecto')
+                                        ->where('desarrolladores.id','=',$id)
+                                        ->first();
+        return view('desarrolladores.view', compact('desarrollador'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Desarrollador  $desarrollador
+     * @param  \App\Models\Desarrollador $desarrollador
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
+        $proyectos = Proyecto::orderBy('nombre','asc')->get();
+        $desarrollador = Desarrollador::FindOrFail($id);
+        return view('desarrolladores.edit', compact('proyectos'));
     }
 
     /**
@@ -88,6 +96,17 @@ class DesarrolladorController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'nombre'=> 'required',
+            'apellido'=> 'required',
+            'direccion'=> 'required',
+            'telefono'=> 'required',
+            'proyectoId'=> 'required'
+        ]);
+
+        $desarrollador = Desarrollador::findOrFail($id);
+        $desarrollador->update($request->all());
+        return redirect()->route('desarrolladores.index')->with('exito','Se ha modificado los datos del desarrollador exitosamente.');
     }
 
     /**
