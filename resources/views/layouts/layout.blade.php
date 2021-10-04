@@ -9,10 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('titulo')</title>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('proyectos.index') }}">
+            <a class="navbar-brand" href="{{ route('inicio') }}">
                 <img src="{{ asset('images/sena.png') }}" alt="Logo" class="logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -43,13 +44,19 @@
                         </ul>
                     </li>
                 </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="buscar">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                  </form>
             </div>
         </div>
     </nav>
     <div class="container">
         @yield('content')
     </div>
-
+    <footer class="card-footer text-muted text-center footer">
+        Desarrollado por <span class="fw-bold">Jhon Steven Valencia Guzmán</span> &copy; 2021
+    </footer>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 

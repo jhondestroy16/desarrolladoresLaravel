@@ -10,6 +10,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
+    @if ($query)
+    <div class="alert alert-primary">
+        <p>Los resultadis de la busqueda <strong>{{ $query }} Son:</strong></p>
+    </div>
+    @endif
 
     <a href="{{ route('proyectos.create') }}" class="btn btn-outline-primary mb-3 float-end">Crear proyecto</a>
 
