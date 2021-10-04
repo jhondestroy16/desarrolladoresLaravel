@@ -66,7 +66,7 @@ class DesarrolladorController extends Controller
     {
         //
         $desarrollador = Desarrollador::join('proyectos', 'desarrolladores.proyectoId','=','proyectos.id')
-                                        ->select('desarrolladores.*','proyectos.nombre as nombreProyecto')
+                                        ->select('desarrolladores.*','proyectos.nombre as nombreProyecto','proyectos.duracion')
                                         ->where('desarrolladores.id','=',$id)
                                         ->first();
         return view('desarrolladores.view', compact('desarrollador'));
@@ -83,7 +83,7 @@ class DesarrolladorController extends Controller
         //
         $proyectos = Proyecto::orderBy('nombre','asc')->get();
         $desarrollador = Desarrollador::FindOrFail($id);
-        return view('desarrolladores.edit', compact('proyectos'));
+        return view('desarrolladores.edit', compact('proyectos','desarrollador'));
     }
 
     /**

@@ -19,7 +19,7 @@
     @endif
     <form action="{{ route('desarrolladores.store') }}" method="post">
         @csrf
-        @method('POST')
+        @method('post')
         <div class="mb-3">
             <label for="nombre" class="form-label texto my-2">
                 <h4>Nombre</h4>

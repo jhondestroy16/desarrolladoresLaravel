@@ -44,5 +44,13 @@
             <p>{{ $desarrollador->nombreProyecto }}</p>
         </div>
     </div>
+    <div class="row mt-3">
+        <div class="col-sm-3">
+            <h3>Duracion:</h3>
+        </div>
+        <div class="col-sm-3">
+            <p>{{ $desarrollador->duracion }} meses</p>
+        </div>
+    </div>
     <a href="{{ route('desarrolladores.index') }}" class = "btn btn-primary mt-3">Volver</a>
 @endsection
