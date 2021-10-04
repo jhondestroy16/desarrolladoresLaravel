@@ -13,8 +13,15 @@ class DesarrolladorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if($request){
+            $query = $request->buscar;
+            $desarrolladores = Desarrollador::where('nombre','LIKE','%'.$query.'%')
+                                            ->orderBy('nombre','asc')
+                                            ->get();
+            return view('desarrolladores.index', compact('desarrolladores', 'query'));
+        }
         //listar los desarrolladores ordenados por nombre ascendentemente
         $desarrolladores = Desarrollador::orderBy('nombre','asc')->get();
         //Enviar a la vista
