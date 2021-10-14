@@ -13,11 +13,16 @@
     @endif
     @if ($query)
     <div class="alert alert-success alert-dismissible fade show">
-        <p>Los resultadis de la busqueda <strong>{{ $query }} </strong> Son:</p>
+        <p>Los resultados de la busqueda <strong>{{ $query }} </strong> Son:</p>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
-    <a href="{{ route('desarrolladores.create') }}" class="btn btn-outline-primary mb-3 float-end">Registrar desarrollador</a>
+    {{-- <a href="{{ route('desarrolladores.create') }}" class="btn btn-outline-primary mb-3 float-end">Registrar desarrollador</a> --}}
+
+    @if ($desarrolladores)
+    <p>No hay registros</p>
+    <p>{{ $desarrolladores }}</p>
+    @else
     <table class="table table-hover">
         <thead>
             <tr>
@@ -45,4 +50,5 @@
             @endforeach
         </tbody>
     </table>
+    @endif
 @endsection

@@ -15,53 +15,71 @@
                 @endforeach
             </ul>
         </div>
-
     @endif
-    <form action="{{ route('desarrolladores.store') }}" method="post">
+    <form class="well form-horizontal" action="{{ route('desarrolladores.store') }}" method="post" id="insert_developer">
         @csrf
         @method('post')
-        <div class="mb-3">
-            <label for="nombre" class="form-label texto my-2">
-                <h4>Nombre</h4>
-            </label>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre del desarrollador" class="form-control"
-                value="{{ old('nombre') }}">
+        <div class="form-group">
+            <label class="col-md-4 control-label">Nombre</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input name="nombre" placeholder="Nombre" class="form-control" type="text"
+                        value="{{ old('nombre') }}">
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="apellido" class="form-label texto my-2">
-                <h4>Apellido</h4>
-            </label>
-            <input type="text" name="apellido" id="apellido" placeholder="Apellido del desarrollador" class="form-control"
-                value="{{ old('apellido') }}">
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Apellido</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input name="apellido" placeholder="Apellido" class="form-control" type="text"
+                        value="{{ old('apellido') }}">
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="telefono" class="form-label texto my-2">
-                <h4>Telefono</h4>
-            </label>
-            <input type="number" name="telefono" id="telefono" placeholder="Telefono del desarrollador"
-                class="form-control" value="{{ old('telefono') }}">
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Telefono #</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                    <input name="telefono" placeholder="(845)555-1212" class="form-control" type="number"
+                        value="{{ old('telefono') }}">
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="direccion" class="form-label texto my-2">
-                <h4>Direccion</h4>
-            </label>
-            <input type="text" name="direccion" id="direccion" placeholder="Direccion del desarrollador"
-                class="form-control" value="{{ old('direccion') }}">
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Direccion</label>
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                    <input name="direccion" placeholder="Direccion" class="form-control" type="text"
+                        value="{{ old('direccion') }}">
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="proyectoId" class="form-label texto my-2">
-                <h4>Proyecto</h4>
-            </label>
-            <select name="proyectoId" class="form-select" id="proyectoId">
-                <option value="">Seleccione...</option>
-                @foreach ($proyectos as $proyecto)
-                    <option value="{{ $proyecto->id }}" @if (old('proyectoId') == $proyecto->id)
-                        selected
-                @endif>
-                {{ $proyecto->nombre }}
-                </option>
-                @endforeach
-            </select>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Proyecto</label>
+            <div class="col-md-4 selectContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                    <select name="proyectoId" class="form-control selectpicker">
+                        <option value="">Seleccione...</option>
+                        @foreach ($proyectos as $proyecto)
+                            <option value="{{ $proyecto->id }}" @if (old('proyectoId') == $proyecto->id)
+                                selected
+                        @endif>
+                        {{ $proyecto->nombre }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
         </div>
         <div>
             <button type="submit" class="btn btn-primary my-2"> Guardar </button>

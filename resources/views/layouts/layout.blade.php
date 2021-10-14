@@ -58,6 +58,7 @@
         Desarrollado por <span class="fw-bold">Jhon Steven Valencia Guzmán</span> &copy; 2021
     </footer>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
 
 </html>
