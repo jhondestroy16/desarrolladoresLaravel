@@ -17,12 +17,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
-    {{-- <a href="{{ route('desarrolladores.create') }}" class="btn btn-outline-primary mb-3 float-end">Registrar desarrollador</a> --}}
-
-    @if ($desarrolladores)
-    <p>No hay registros</p>
-    <p>{{ $desarrolladores }}</p>
-    @else
     <table class="table table-hover">
         <thead>
             <tr>
@@ -50,5 +44,5 @@
             @endforeach
         </tbody>
     </table>
-    @endif
+    {{-- @endif --}}
 @endsection
