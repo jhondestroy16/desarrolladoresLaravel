@@ -21,3 +21,7 @@ Route::get('/', function () {
 
 Route::resource('proyectos', ProyectoController::class);
 Route::resource('desarrolladores', DesarrolladorController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
